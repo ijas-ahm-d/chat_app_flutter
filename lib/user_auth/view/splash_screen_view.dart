@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
     if (isLoggedIn) {
       return const HomeScreen();
     } else {
-      return const LoginScreen();
+      return  LoginScreen();
     }
   }
 }

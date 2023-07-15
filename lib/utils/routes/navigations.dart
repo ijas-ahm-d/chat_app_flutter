@@ -13,8 +13,8 @@ class Navigations {
   static Map<String, Widget Function(BuildContext)> routes() {
     Map<String, Widget Function(BuildContext)> routes = {
       "/splash_screen": (context) => const SplashScreen(),
-      "/userLogin": (context) => const LoginScreen(),
-      "/userSignup": (context) => const SignupScreen(),
+      "/userLogin": (context) =>  LoginScreen(),
+      "/userSignup": (context) =>  SignupScreen(),
     };
     return routes;
   }
