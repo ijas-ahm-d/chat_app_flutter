@@ -39,7 +39,7 @@ class SignupViewModel extends ChangeNotifier {
         setLoading(false);
         // call our database service to update the user data
         // ignore: use_build_context_synchronously
-        await DatabaseService(uid: user.uid).updateUserData(context);
+        await DatabaseService(uid: user.uid).savingUserData(context);
 
         await setSignupStatus(
             userName: userNameController.text.trim(),
@@ -77,7 +77,7 @@ class SignupViewModel extends ChangeNotifier {
     await sf.setString(GlobalKeys.userNameKey, "");
     await sf.setString(GlobalKeys.userEmailKey, "");
 
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).pushReplacementNamed(Navigations.homeScreen);
+    // ignore: use_build_context_synchronously
+    Navigator.of(context).pushReplacementNamed(Navigations.splashScreen);
   }
 }

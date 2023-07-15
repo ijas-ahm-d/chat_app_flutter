@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:chat_app/user_auth/components/common_button.dart';
 import 'package:chat_app/user_auth/components/text_form_field.dart';
@@ -74,20 +75,27 @@ class LoginScreen extends StatelessWidget {
                   ),
                   AppSizes.kHeight50,
                   CommonButton(
-                    onTap: () async {
-                      if (_formkey.currentState!.validate()) {
-                        provider.clearController();
-                      }
-                    },
+                    onTap: provider.isLoading
+                        ? () {}
+                        : () async {
+                            if (_formkey.currentState!.validate()) {
+                              log("success");
+                              await provider.login(context);
+                            }
+                          },
                     color: AppColors.kblack2,
-                    child: Text(
-                      "Login",
-                      style: TextStyles.onText(
-                        14,
-                        FontWeight.w600,
-                        AppColors.kwhite,
-                      ),
-                    ),
+                    child: provider.isLoading
+                        ? const CircularProgressIndicator(
+                            strokeWidth: 2,
+                          )
+                        : Text(
+                            "Login",
+                            style: TextStyles.onText(
+                              14,
+                              FontWeight.w600,
+                              AppColors.kwhite,
+                            ),
+                          ),
                   ),
                   AppSizes.kHeight10,
                   Row(
