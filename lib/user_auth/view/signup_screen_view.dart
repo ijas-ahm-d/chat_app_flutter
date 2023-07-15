@@ -3,6 +3,7 @@ import 'package:chat_app/user_auth/components/text_form_field.dart';
 import 'package:chat_app/user_auth/view_model/signup_view_model.dart';
 import 'package:chat_app/utils/global_colors.dart';
 import 'package:chat_app/utils/global_values.dart';
+import 'package:chat_app/utils/routes/navigations.dart';
 import 'package:chat_app/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,16 +30,37 @@ class SignupScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    "Welcome, Please login",
-                    style:
-                        TextStyles.onText(24, FontWeight.normal, Colors.black),
+                Text(
+                  "APP-CHAT",
+                  style: TextStyles.onText(
+                    22,
+                    FontWeight.bold,
+                    AppColors.appColor,
+                  ),
+                ),
+                AppSizes.kHeight10,
+                Text(
+                  "create your accoount now to chat and explore",
+                  style: TextStyles.onText(
+                    14,
+                    FontWeight.normal,
+                    Colors.black,
                   ),
                 ),
                 AppSizes.kHeight30,
-                Image.asset("assets/images/login.png"),
+                Image.asset("assets/images/signup.png"),
                 AppSizes.kHeight30,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                  child: TextFormWidget(
+                      isEmail: true,
+                      prefixIcon: const Icon(Icons.email),
+                      controller: provider.userNameController,
+                      hintText: "Username",
+                      keyType: TextInputType.name,
+                      size: size),
+                ),
+                AppSizes.kHeight20,
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
                   child: TextFormWidget(
@@ -49,7 +71,7 @@ class SignupScreen extends StatelessWidget {
                       keyType: TextInputType.emailAddress,
                       size: size),
                 ),
-                AppSizes.kHeight30,
+                AppSizes.kHeight20,
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
                   child: TextFormWidget(
@@ -65,7 +87,7 @@ class SignupScreen extends StatelessWidget {
                   onTap: () {},
                   color: AppColors.kblack2,
                   child: Text(
-                    "Login",
+                    "Signup",
                     style: TextStyles.onText(
                       14,
                       FontWeight.w600,
@@ -78,13 +100,16 @@ class SignupScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "Don’t have an account?",
+                      "Aldready have an account?",
                       style: TextStyle(color: AppColors.kblack),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(Navigations.loginScreen);
+                      },
                       child: const Text(
-                        "Register Now",
+                        "Login Now",
                         style: TextStyle(
                           color: AppColors.spGreen,
                         ),

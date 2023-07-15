@@ -3,6 +3,7 @@ import 'package:chat_app/user_auth/components/text_form_field.dart';
 import 'package:chat_app/user_auth/view_model/login_view_model.dart';
 import 'package:chat_app/utils/global_colors.dart';
 import 'package:chat_app/utils/global_values.dart';
+import 'package:chat_app/utils/routes/navigations.dart';
 import 'package:chat_app/utils/text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -83,7 +84,10 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(color: AppColors.kblack),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(Navigations.signupScreen);
+                      },
                       child: const Text(
                         "Register Now",
                         style: TextStyle(
