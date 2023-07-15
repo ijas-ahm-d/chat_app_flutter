@@ -10,9 +10,7 @@ class TextFormWidget extends StatelessWidget {
   final TextInputType keyType;
   final bool isPassword;
   final bool isEmail;
-
   final bool isUser;
-  final bool isObs;
   final Size size;
   final dynamic prefixIcon;
   const TextFormWidget({
@@ -25,7 +23,6 @@ class TextFormWidget extends StatelessWidget {
     this.isPassword = false,
     this.isEmail = false,
     this.isUser = false,
-    this.isObs = false,
   });
 
   @override
@@ -57,6 +54,12 @@ class TextFormWidget extends StatelessWidget {
         return null;
       },
       decoration: InputDecoration(
+        errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.spRed,
+            width: 2,
+          ),
+        ),
         fillColor: const Color.fromARGB(25, 107, 99, 255),
         filled: true,
         prefixIconColor: AppColors.kblack,
@@ -75,10 +78,10 @@ class TextFormWidget extends StatelessWidget {
             : const SizedBox(),
         counterStyle: const TextStyle(color: AppColors.kwhite),
         hintText: hintText,
-        // hintStyle: hintStyle,
         border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(15)),
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(15),
+        ),
       ),
       style: TextStyle(
         fontSize: size.width * 0.045,

@@ -10,8 +10,13 @@ class LoginViewModel with ChangeNotifier {
   bool _passwordVisibility = true;
   bool get passwordVisibility => _passwordVisibility;
 
- showPassword() {
+  showPassword() {
     _passwordVisibility = !passwordVisibility;
     notifyListeners();
+  }
+
+  clearController() {
+    emailController.clear();
+    passwordController.clear();
   }
 }
