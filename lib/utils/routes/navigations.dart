@@ -18,7 +18,7 @@ class Navigations {
       "/splash_screen": (context) => const SplashScreen(),
       "/userLogin": (context) => LoginScreen(),
       "/userSignup": (context) => SignupScreen(),
-      "/home_screen":(context)=>const HomeScreen()
+      "/home_screen":(context)=> HomeScreen()
     };
     return routes;
   }

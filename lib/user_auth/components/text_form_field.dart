@@ -2,6 +2,7 @@ import 'package:chat_app/user_auth/view_model/login_view_model.dart';
 import 'package:chat_app/utils/global_colors.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class TextFormWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class TextFormWidget extends StatelessWidget {
   final TextInputType keyType;
   final bool isPassword;
   final bool isEmail;
+  final bool isGroup;
   final bool isUser;
   final Size size;
   final dynamic prefixIcon;
@@ -23,6 +25,7 @@ class TextFormWidget extends StatelessWidget {
     this.isPassword = false,
     this.isEmail = false,
     this.isUser = false,
+    this.isGroup = false,
   });
 
   @override
@@ -35,6 +38,12 @@ class TextFormWidget extends StatelessWidget {
         if (isUser) {
           if (value == null || value.isEmpty) {
             return "Username is required";
+          }
+        }
+
+        if (isGroup) {
+          if (value == null || value.isEmpty) {
+            return "Groupname is required";
           }
         }
 

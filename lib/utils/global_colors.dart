@@ -8,4 +8,5 @@ class AppColors {
   static const spGreen = Color.fromARGB(255, 53, 194, 193);
   static const spRed = Color.fromARGB(255, 235, 80, 78);
   static const warn = Color.fromARGB(255, 255, 204, 0);
+ static const hashColor = Color.fromARGB(223, 143, 132, 132);
 }

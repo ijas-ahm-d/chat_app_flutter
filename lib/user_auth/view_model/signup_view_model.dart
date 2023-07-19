@@ -31,6 +31,7 @@ class SignupViewModel extends ChangeNotifier {
 
   Future register(BuildContext context) async {
     setLoading(true);
+
     try {
       User? user = (await firebaseAuth.createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text))

@@ -9,7 +9,7 @@ class CommonSnackBAr {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: const Duration(seconds: 5),
+        duration: const Duration(seconds: 2),
         content: Text(
           data,
           style: const TextStyle(

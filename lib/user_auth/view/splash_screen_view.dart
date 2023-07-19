@@ -13,6 +13,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+ 
     final size = MediaQuery.of(context).size;
     return FutureBuilder(
       future: loggedIn(),
@@ -48,12 +49,12 @@ class SplashScreen extends StatelessWidget {
       },
     );
   }
-
   Future<Widget> loggedIn() async {
     final prefs = await SharedPreferences.getInstance();
     final isLoggedIn = prefs.getBool(GlobalKeys.userLoggedInLey) ?? false;
     if (isLoggedIn) {
-      return const HomeScreen();
+     
+      return  HomeScreen();
     } else {
       return LoginScreen();
     }
