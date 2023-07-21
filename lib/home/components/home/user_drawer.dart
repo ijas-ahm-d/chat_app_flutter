@@ -22,14 +22,18 @@ class UserDrawer extends StatelessWidget {
             decoration: const BoxDecoration(
               color: AppColors.appColor,
             ),
-            accountName: Text(userVal.userName ?? "person"),
+            accountName: Text(
+              userVal.userName ?? "person",
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: AppColors.kwhite,
+              ),
+            ),
             accountEmail: Text(userVal.userEmail ?? "person@gmail.com"),
             currentAccountPicture: const CircleAvatar(
               backgroundColor: AppColors.kblack,
-              child: Icon(
-                Icons.person,
-                size: 35,
-              ),
+              backgroundImage: AssetImage("assets/images/male.png"),
             ),
           ),
           ListTile(

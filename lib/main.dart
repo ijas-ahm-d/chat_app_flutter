@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: ProviderList.provider,
       child: MaterialApp(
+        theme: ThemeData(useMaterial3: true),
         debugShowCheckedModeBanner: false,
         title: "ChatApp",
         routes: Navigations.routes(),

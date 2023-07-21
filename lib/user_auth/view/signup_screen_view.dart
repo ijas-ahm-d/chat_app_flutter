@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:chat_app/user_auth/components/common_button.dart';
 import 'package:chat_app/user_auth/components/text_form_field.dart';
 import 'package:chat_app/user_auth/view_model/signup_view_model.dart';
@@ -39,7 +38,7 @@ class SignupScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "APP-CHAT",
+                    "TEAM-TALK",
                     style: TextStyles.onText(
                       22,
                       FontWeight.bold,
@@ -48,7 +47,7 @@ class SignupScreen extends StatelessWidget {
                   ),
                   AppSizes.kHeight10,
                   Text(
-                    "create your accoount now to chat and explore",
+                    "create your account now to chat and explore!",
                     style: TextStyles.onText(
                       14,
                       FontWeight.normal,
@@ -95,11 +94,12 @@ class SignupScreen extends StatelessWidget {
                   ),
                   AppSizes.kHeight50,
                   CommonButton(
+                      size:const Size(200, 50),
                     onTap: provider.isLoading
                         ? () {}
                         : () async {
                             if (_formkey.currentState!.validate()) {
-                              log("success");
+                             
 
                               await provider.register(context);
                              

@@ -1,4 +1,6 @@
+import 'package:chat_app/home/view_model/group_view_model.dart';
 import 'package:chat_app/home/view_model/home_view_model.dart';
+import 'package:chat_app/home/view_model/search_view_model.dart';
 import 'package:chat_app/user_auth/view_model/logged_view_model.dart';
 import 'package:chat_app/user_auth/view_model/login_view_model.dart';
 import 'package:chat_app/user_auth/view_model/signup_view_model.dart';
@@ -18,6 +20,12 @@ class ProviderList {
     ),
     ChangeNotifierProvider(
       create: (context) => HomeViewModel(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => GroupViewModel(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => SearchViewModel(),
     ),
   ];
 }

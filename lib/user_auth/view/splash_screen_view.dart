@@ -33,7 +33,7 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "APP-CHAT",
+                "TEAM-TALK",
                 style: TextStyles.splashHead(),
               ),
               AppSizes.kHeight20,
@@ -54,7 +54,7 @@ class SplashScreen extends StatelessWidget {
     final isLoggedIn = prefs.getBool(GlobalKeys.userLoggedInLey) ?? false;
     if (isLoggedIn) {
      
-      return  HomeScreen();
+      return  const HomeScreen();
     } else {
       return LoginScreen();
     }

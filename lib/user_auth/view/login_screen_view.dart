@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:chat_app/user_auth/components/common_button.dart';
 import 'package:chat_app/user_auth/components/text_form_field.dart';
@@ -40,14 +39,24 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text(
-                      "Welcome, Please login",
-                      style: TextStyles.onText(
-                          24, FontWeight.normal, Colors.black),
+                  Text(
+                    "TEAM-TALK",
+                    style: TextStyles.onText(
+                      22,
+                      FontWeight.bold,
+                      AppColors.appColor,
                     ),
                   ),
-                  AppSizes.kHeight30,
+                  AppSizes.kHeight10,
+                  Text(
+                    "Login Now to see what they are talking!",
+                    style: TextStyles.onText(
+                      14,
+                      FontWeight.normal,
+                      Colors.black,
+                    ),
+                  ),
+                  AppSizes.kHeight10,
                   Image.asset("assets/images/login.png"),
                   AppSizes.kHeight30,
                   Padding(
@@ -79,11 +88,12 @@ class LoginScreen extends StatelessWidget {
                         ? () {}
                         : () async {
                             if (_formkey.currentState!.validate()) {
-                              log("success");
+                            
                               await provider.login(context);
                             }
                           },
                     color: AppColors.kblack2,
+                      size:const Size(200, 50),
                     child: provider.isLoading
                         ? const CircularProgressIndicator(
                             strokeWidth: 2,
@@ -96,6 +106,7 @@ class LoginScreen extends StatelessWidget {
                               AppColors.kwhite,
                             ),
                           ),
+                        
                   ),
                   AppSizes.kHeight10,
                   Row(

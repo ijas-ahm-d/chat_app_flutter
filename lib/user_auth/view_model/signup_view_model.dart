@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:chat_app/data/network/database_service.dart';
 import 'package:chat_app/user_auth/components/common_snackbar.dart';
@@ -44,7 +43,8 @@ class SignupViewModel extends ChangeNotifier {
 
         await setSignupStatus(
             userName: userNameController.text.trim(),
-            usesrEmail: emailController.text.trim());
+            usesrEmail: emailController.text.trim(),
+            userId: user.uid);
 
         // ignore: use_build_context_synchronously
         Navigator.of(context).pushReplacementNamed(Navigations.homeScreen);
@@ -54,7 +54,7 @@ class SignupViewModel extends ChangeNotifier {
       }
     } on FirebaseAuthException catch (e) {
       setLoading(false);
-      log(e.toString());
+     
       return CommonSnackBAr.snackBar(
         context: context,
         data: e.message.toString(),
@@ -64,12 +64,16 @@ class SignupViewModel extends ChangeNotifier {
     setLoading(false);
   }
 
-  setSignupStatus(
-      {required String userName, required String usesrEmail}) async {
+  setSignupStatus({
+    required String userName,
+    required String usesrEmail,
+    required String userId,
+  }) async {
     SharedPreferences sf = await SharedPreferences.getInstance();
     await sf.setBool(GlobalKeys.userLoggedInLey, true);
     await sf.setString(GlobalKeys.userNameKey, userName);
     await sf.setString(GlobalKeys.userEmailKey, usesrEmail);
+    await sf.setString(GlobalKeys.userId, userId);
   }
 
   setLogOutStatus(BuildContext context) async {
@@ -77,6 +81,7 @@ class SignupViewModel extends ChangeNotifier {
     await sf.setBool(GlobalKeys.userLoggedInLey, false);
     await sf.setString(GlobalKeys.userNameKey, "");
     await sf.setString(GlobalKeys.userEmailKey, "");
+    await sf.setString(GlobalKeys.userId, "");
 
     // ignore: use_build_context_synchronously
     Navigator.of(context).pushReplacementNamed(Navigations.splashScreen);

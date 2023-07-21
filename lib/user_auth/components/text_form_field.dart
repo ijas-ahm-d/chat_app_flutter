@@ -2,7 +2,6 @@ import 'package:chat_app/user_auth/view_model/login_view_model.dart';
 import 'package:chat_app/utils/global_colors.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class TextFormWidget extends StatelessWidget {
